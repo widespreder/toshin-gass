@@ -315,48 +315,70 @@ button{border:0;background:0;cursor:pointer;font:inherit;color:inherit}
   50%{opacity:1;transform:scale(1)}
 }
 
-/* === MASCOT INTRO (とーまくん紹介) === */
+/* === MASCOT INTRO (とーまくん紹介 — 青系で世界観統一) === */
 .mascot-intro{
-  display:inline-flex;align-items:center;gap:10px;
-  margin:-4px auto 8px;
-  padding:8px 18px 8px 8px;
+  display:inline-flex;flex-direction:column;align-items:center;gap:4px;
+  margin:-2px auto 10px;
+  padding:14px 28px 16px;
   background:#fff;
-  border:2px dashed #FFD24E;
-  border-radius:999px;
-  box-shadow:0 6px 16px rgba(31,112,184,.15);
+  border:3px solid var(--c-sky);
+  border-radius:24px;
+  box-shadow:
+    0 0 0 4px #fff,
+    0 0 0 6px rgba(91,176,232,.25),
+    0 10px 24px rgba(31,112,184,.18);
   position:relative;z-index:3;
 }
-.mascot-new{
-  display:inline-flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--c-coral),var(--c-coral-dark));
+/* 角の星マーク（キャラの可愛さを演出） */
+.mascot-intro::before,
+.mascot-intro::after{
+  content:"";position:absolute;
+  width:14px;height:14px;border-radius:50%;
+  background:radial-gradient(circle,#FFD24E 0%,#FFD24E 50%,transparent 70%);
+  animation:twinkle 2s ease-in-out infinite;
+}
+.mascot-intro::before{top:-6px;left:14px}
+.mascot-intro::after{bottom:-4px;right:14px;animation-delay:.7s}
+
+.mi-tag{
+  display:inline-flex;align-items:center;gap:5px;
+  background:linear-gradient(135deg,var(--c-sky),var(--c-sky-dark));
   color:#fff;
-  width:42px;height:42px;border-radius:50%;
-  font-family:"Montserrat",sans-serif;font-weight:900;
-  font-size:12px;letter-spacing:.02em;
-  box-shadow:0 4px 10px rgba(242,92,61,.4);
-  animation:pop 1.8s ease-in-out infinite;
+  padding:4px 14px;border-radius:999px;
+  font-size:11px;font-weight:800;letter-spacing:.04em;
+  box-shadow:0 3px 8px rgba(31,112,184,.3);
 }
-@keyframes pop{
-  0%,100%{transform:scale(1) rotate(-6deg)}
-  50%{transform:scale(1.1) rotate(6deg)}
+.mi-tag svg{color:#FFD24E;flex-shrink:0}
+
+.mi-name{
+  display:flex;align-items:center;gap:8px;
+  margin-top:6px;
 }
-.mascot-intro-text{
-  display:flex;flex-direction:column;align-items:flex-start;line-height:1.2;
+.mi-name-text{
+  font-size:26px;font-weight:900;
+  color:var(--c-sky-deep);letter-spacing:.06em;line-height:1;
+  font-family:inherit;
+  text-shadow:0 2px 0 rgba(91,176,232,.18);
 }
-.mascot-sub{
-  font-size:10.5px;font-weight:700;color:var(--c-ink-soft);letter-spacing:.04em;
+.mi-deco{
+  color:var(--c-sky);font-size:18px;font-weight:900;
+  display:inline-block;
+  animation:swing 2s ease-in-out infinite;
 }
-.mascot-name{
-  font-size:20px;font-weight:900;color:var(--c-sky-deep);letter-spacing:.04em;
-  margin-top:2px;
+.mi-deco:last-child{animation-delay:.5s}
+@keyframes swing{
+  0%,100%{transform:rotate(-8deg) translateY(0)}
+  50%{transform:rotate(8deg) translateY(-2px)}
 }
-.mascot-name::after{
-  content:"♪";color:var(--c-coral);font-size:14px;margin-left:3px;
-  display:inline-block;animation:wave 1.4s ease-in-out infinite;
+
+.mi-job{
+  font-size:12px;font-weight:700;color:var(--c-ink-soft);
+  margin-top:2px;letter-spacing:.04em;
 }
-@keyframes wave{
-  0%,100%{transform:rotate(-10deg)}
-  50%{transform:rotate(10deg)}
+.mi-job strong{
+  color:var(--c-sky-dark);font-weight:900;
+  background:linear-gradient(180deg,transparent 65%,#FFF09E 65%);
+  padding:0 3px;
 }
 
 /* === HERO QUICK NAV === */
@@ -886,30 +908,55 @@ button{border:0;background:0;cursor:pointer;font:inherit;color:inherit}
   position:relative;z-index:2;
 }
 .subsidy-title span{font-size:24px}
+.subsidy-banner-img{
+  margin:0 auto 20px;
+  max-width:480px;
+  position:relative;z-index:2;
+  background:#fff;
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 12px 28px rgba(0,0,0,.2);
+  padding:0;
+}
+.subsidy-banner-img img{
+  width:100%;height:auto;display:block;
+}
+.subsidy-banner-img figcaption{
+  background:#fff;color:var(--c-ink-soft);
+  font-size:11px;text-align:center;
+  padding:8px 12px;border-top:1px dashed rgba(31,53,80,.15);
+  line-height:1.5;
+}
+
 .subsidy-card{
   background:#fff;color:var(--c-ink);
   border-radius:18px;padding:24px 20px;
   box-shadow:0 16px 36px rgba(0,0,0,.18);
   text-align:left;position:relative;z-index:2;
 }
-.sc-num{
-  text-align:center;padding-bottom:20px;margin-bottom:20px;
-  border-bottom:2px dashed rgba(244,155,59,.4);
-}
-.sc-lbl{display:block;font-size:13px;font-weight:700;color:var(--c-ink-soft)}
-.sc-big{
-  display:block;font-family:"Montserrat",sans-serif;
-  font-size:72px;font-weight:900;color:var(--c-orange);
-  line-height:1;margin:4px 0;
-}
-.sc-big small{font-size:22px;color:var(--c-ink);font-weight:700;margin-left:4px}
-.sc-sub{display:block;font-size:11px;color:var(--c-ink-mute)}
 .sc-tag{
-  display:inline-block;background:var(--c-orange);color:#fff;
-  padding:4px 12px;font-size:18px;font-weight:800;border-radius:6px;
-  margin-bottom:10px;
+  display:inline-block;
+  background:linear-gradient(135deg,#4CAF50,#2E7D32);color:#fff;
+  padding:6px 14px;font-size:14px;font-weight:800;border-radius:8px;
+  margin-bottom:12px;letter-spacing:.03em;
 }
-.sc-body p{font-size:13.5px;color:var(--c-ink-soft);margin-bottom:16px;line-height:1.7}
+.sc-body p{font-size:13.5px;color:var(--c-ink-soft);margin-bottom:14px;line-height:1.75}
+.sc-body p strong{color:var(--c-ink);font-weight:800;background:linear-gradient(180deg,transparent 60%,#FFF09E 60%);padding:0 3px}
+.subsidy-points{
+  display:flex;flex-direction:column;gap:8px;margin-bottom:18px;
+}
+.subsidy-points li{
+  position:relative;padding:10px 12px 10px 36px;
+  background:#F1F8EC;border-radius:8px;border-left:3px solid #4CAF50;
+  font-size:13px;color:var(--c-ink);line-height:1.5;
+}
+.subsidy-points li::before{
+  content:"✓";position:absolute;left:12px;top:50%;transform:translateY(-50%);
+  width:18px;height:18px;border-radius:50%;
+  background:#4CAF50;color:#fff;
+  font-size:11px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.subsidy-points li strong{color:#2E7D32;font-weight:800}
 
 /* (old simple services styles removed — using .d-card .svc-detail variants) */
 
