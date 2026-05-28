@@ -315,6 +315,50 @@ button{border:0;background:0;cursor:pointer;font:inherit;color:inherit}
   50%{opacity:1;transform:scale(1)}
 }
 
+/* === MASCOT INTRO (とーまくん紹介) === */
+.mascot-intro{
+  display:inline-flex;align-items:center;gap:10px;
+  margin:-4px auto 8px;
+  padding:8px 18px 8px 8px;
+  background:#fff;
+  border:2px dashed #FFD24E;
+  border-radius:999px;
+  box-shadow:0 6px 16px rgba(31,112,184,.15);
+  position:relative;z-index:3;
+}
+.mascot-new{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c-coral),var(--c-coral-dark));
+  color:#fff;
+  width:42px;height:42px;border-radius:50%;
+  font-family:"Montserrat",sans-serif;font-weight:900;
+  font-size:12px;letter-spacing:.02em;
+  box-shadow:0 4px 10px rgba(242,92,61,.4);
+  animation:pop 1.8s ease-in-out infinite;
+}
+@keyframes pop{
+  0%,100%{transform:scale(1) rotate(-6deg)}
+  50%{transform:scale(1.1) rotate(6deg)}
+}
+.mascot-intro-text{
+  display:flex;flex-direction:column;align-items:flex-start;line-height:1.2;
+}
+.mascot-sub{
+  font-size:10.5px;font-weight:700;color:var(--c-ink-soft);letter-spacing:.04em;
+}
+.mascot-name{
+  font-size:20px;font-weight:900;color:var(--c-sky-deep);letter-spacing:.04em;
+  margin-top:2px;
+}
+.mascot-name::after{
+  content:"♪";color:var(--c-coral);font-size:14px;margin-left:3px;
+  display:inline-block;animation:wave 1.4s ease-in-out infinite;
+}
+@keyframes wave{
+  0%,100%{transform:rotate(-10deg)}
+  50%{transform:rotate(10deg)}
+}
+
 /* === HERO QUICK NAV === */
 .hero-quick{
   display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
