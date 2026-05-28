@@ -1,0 +1,17 @@
+# ローカルプレビュー設定（Web公開に不要）
+.claude/
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+*~
+
+# 一時ファイル
+*.tmp
+*.bak
