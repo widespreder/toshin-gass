@@ -1,6 +1,9 @@
 # ローカルプレビュー設定（Web公開に不要）
 .claude/
 
+# 圧縮前の画像バックアップ（ローカル保持）
+images_original_backup/
+
 # OS生成ファイル
 .DS_Store
 Thumbs.db
